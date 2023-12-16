@@ -274,6 +274,7 @@ export async function getCollection(handle: string): Promise<Collection | undefi
   const res = await shopifyFetch<ShopifyCollectionOperation>({
     query: getCollectionQuery,
     tags: [TAGS.collections],
+    cache: 'no-store',
     variables: {
       handle
     }
