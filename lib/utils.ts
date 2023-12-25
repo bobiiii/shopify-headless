@@ -1,3 +1,7 @@
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+
 import { ReadonlyURLSearchParams } from 'next/navigation';
 
 export const createUrl = (pathname: string, params: URLSearchParams | ReadonlyURLSearchParams) => {
@@ -37,3 +41,9 @@ export const validateEnvironmentVariables = () => {
     );
   }
 };
+
+
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
