@@ -1,3 +1,4 @@
+import Maxwidthwrapper from '@/components/max-Width-Wrapper';
 import { Carousel } from 'components/carousel';
 import { ThreeItemGrid } from 'components/grid/three-items';
 import Footer from 'components/layout/footer';
@@ -15,14 +16,16 @@ export const metadata = {
 export default async function HomePage() {
   return (
     <>
+      <Maxwidthwrapper>
+        <ThreeItemGrid />
 
-      <ThreeItemGrid />
-      <Carousel />
-      <Suspense>
+        <Carousel />
         <Suspense>
-          <Footer />
+          <Suspense>
+            <Footer />
+          </Suspense>
         </Suspense>
-      </Suspense>
+      </Maxwidthwrapper>
 
     </>
   );

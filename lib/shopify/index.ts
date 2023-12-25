@@ -346,12 +346,15 @@ export async function getMenu(handle: string): Promise<Menu[]> {
       handle
     }
   });
-
+console.log(res.body?.data?.menu)
   return (
-    res.body?.data?.menu?.items.map((item: { title: string; url: string }) => ({
-      title: item.title,
-      path: item.url.replace(domain, '').replace('/collections', '/search').replace('/pages', '')
-    })) || []
+    res.body?.data?.menu?.items.map((item: { title: string; url: string }) => {
+      console.log(item); // Add this line to log the item
+      return {
+        title: item.title,
+        path: item.url.replace(domain, '').replace('/collections', '/search').replace('/pages', '')
+      };
+    }) || []
   );
 }
 
