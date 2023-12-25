@@ -1,8 +1,8 @@
+import Maxwidthwrapper from '@/components/max-Width-Wrapper';
+import { ensureStartsWith } from '@/lib/utils';
 import Navbar from 'components/layout/navbar';
-import Maxwidthwrapper from 'components/max-Width-Wrapper';
 import { ThemeProvider } from "components/theme-provider";
 import { GeistSans } from 'geist/font';
-import { ensureStartsWith } from 'lib/utils';
 import { ReactNode, Suspense } from 'react';
 import './globals.css';
 
@@ -34,6 +34,7 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
+
   return (
     <html lang="en" className={GeistSans.variable} suppressHydrationWarning>
       <body className="">
@@ -43,11 +44,11 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           enableSystem
           disableTransitionOnChange
         >
-          <Maxwidthwrapper>
-            <Navbar />
-          </Maxwidthwrapper>
-
           <Suspense>
+            <Maxwidthwrapper>
+              <Navbar />
+            </Maxwidthwrapper>
+
 
             <main>{children}</main>
           </Suspense>

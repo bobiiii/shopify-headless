@@ -1,7 +1,7 @@
+import { ModeToggle } from '@/components/mode-toggle';
 import Cart from 'components/cart';
 import OpenCart from 'components/cart/open-cart';
 import LogoSquare from 'components/logo-square';
-import { ModeToggle } from 'components/mode-toggle';
 import { getMenu } from 'lib/shopify';
 import { Menu } from 'lib/shopify/types';
 import Link from 'next/link';
@@ -15,7 +15,8 @@ export default async function Navbar() {
   const menu = await getMenu('next-js-frontend-header-menu');
 
   return (
-    <div className="relative flex items-center justify-between p-4 lg:px-6">
+
+    <nav className="relative flex items-center justify-between p-4 lg:px-6">
       <div className="block flex-none md:hidden">
         <MobileMenu menu={menu} />
       </div>
@@ -53,6 +54,7 @@ export default async function Navbar() {
           </Suspense>
         </div>
       </div>
-    </div>
+    </nav>
+
   );
 }
