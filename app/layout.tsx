@@ -5,6 +5,8 @@ import { ThemeProvider } from "components/theme-provider";
 import { GeistSans } from 'geist/font';
 import { ReactNode, Suspense } from 'react';
 import './globals.css';
+import Banner from '@/components/banner';
+
 
 const { TWITTER_CREATOR, TWITTER_SITE, SITE_NAME } = process.env;
 const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL
@@ -45,11 +47,10 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           disableTransitionOnChange
         >
           <Suspense>
+            <Banner></Banner>
             <Maxwidthwrapper>
               <Navbar />
             </Maxwidthwrapper>
-
-
             <main>{children}</main>
           </Suspense>
         </ThemeProvider>
