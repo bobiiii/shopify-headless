@@ -43,6 +43,7 @@ export type Image = {
 export type Menu = {
   title: string;
   path: string;
+  tags?: string[];
 };
 
 export type Money = {

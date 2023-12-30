@@ -1,8 +1,10 @@
+import NavMenu from '@/components/NavMenu';
 import Maxwidthwrapper from '@/components/max-Width-Wrapper';
 import { ensureStartsWith } from '@/lib/utils';
 import Navbar from 'components/layout/navbar';
 import { ThemeProvider } from "components/theme-provider";
 import { GeistSans } from 'geist/font';
+import { getMenu } from 'lib/shopify';
 import { ReactNode, Suspense } from 'react';
 import './globals.css';
 import Banner from '@/components/banner';
@@ -37,6 +39,8 @@ export const metadata = {
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
 
+  const menu = await getMenu('next-js-frontend-header-menu');
+
   return (
     <html lang="en" className={GeistSans.variable} suppressHydrationWarning>
       <body className="">
@@ -47,9 +51,10 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           disableTransitionOnChange
         >
           <Suspense>
-            <Banner></Banner>
+
             <Maxwidthwrapper>
               <Navbar />
+              <NavMenu menu={menu} />
             </Maxwidthwrapper>
             <main>{children}</main>
           </Suspense>
