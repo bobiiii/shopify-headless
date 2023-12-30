@@ -346,13 +346,14 @@ export async function getMenu(handle: string): Promise<Menu[]> {
       handle
     }
   });
-console.log(res.body?.data?.menu)
+
   return (
-    res.body?.data?.menu?.items.map((item: { title: string; url: string }) => {
-      console.log(item); // Add this line to log the item
+    res.body?.data?.menu?.items.map((item: { title: string; url: string, tags?: string[] }) => {
+      
       return {
         title: item.title,
-        path: item.url.replace(domain, '').replace('/collections', '/search').replace('/pages', '')
+        path: item.url.replace(domain, '').replace('/collections', '/search').replace('/pages', ''),
+        tags: item.tags || []
       };
     }) || []
   );
