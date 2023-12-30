@@ -1,6 +1,6 @@
-import Maxwidthwrapper from '@/components/max-Width-Wrapper';
-import { Carousel } from 'components/carousel';
+import { CarouselDemo } from '@/components/carousel';
 import { ThreeItemGrid } from '@/components/grid/three-items';
+import Maxwidthwrapper from '@/components/max-Width-Wrapper';
 import Footer from 'components/layout/footer';
 import { Suspense } from 'react';
 
@@ -19,7 +19,7 @@ export default async function HomePage() {
       <Maxwidthwrapper>
         <ThreeItemGrid />
 
-        <Carousel />
+        <CarouselDemo />
         <Suspense>
           <Suspense>
             <Footer />

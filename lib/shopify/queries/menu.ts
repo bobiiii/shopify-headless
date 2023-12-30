@@ -1,6 +1,7 @@
 export const getMenuQuery = /* GraphQL */ `
   query getMenu($handle: String!) {
     menu(handle: $handle) {
+      
       items {
         id
         resourceId
@@ -8,6 +9,10 @@ export const getMenuQuery = /* GraphQL */ `
         url
         tags
         type
+        
+          
+        
+
         items{
           id
           title

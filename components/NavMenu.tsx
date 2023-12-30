@@ -4,7 +4,6 @@ import {
     NavigationMenu,
     NavigationMenuContent,
     NavigationMenuItem,
-    NavigationMenuLink,
     NavigationMenuList,
     NavigationMenuTrigger,
     navigationMenuTriggerStyle
@@ -35,12 +34,27 @@ const NavMenu = async ({ menu }: { menu: Menu[] }) => {
                                         {item.title}
                                     </Link>
                                 </NavigationMenuTrigger>
+                                <div className="flex justify-center items-center">
+                                    <NavigationMenuContent className="border flex justify-center items-center border-blue-500 " >
 
-                                <NavigationMenuContent className="border border-blue-600   " >
-                                    <Link href="/" legacyBehavior passHref>
+                                        <div className={navigationMenuTriggerStyle()}>
+                                            {item.items?.map((collection: any, i) => {
+                                                return (
+                                                    <div key={i} className="-400 flex gap-10 flex-col  ">
+
+                                                        <div>{collection.title} </div>
+
+                                                    </div>
+                                                )
+                                            })}
+
+                                        </div>
+
+                                        {/* <Link href="/" legacyBehavior passHref>
                                         <NavigationMenuLink className={navigationMenuTriggerStyle()}>WOMEN 11111111 2 22 2 2 22 2 22 2 2 2</NavigationMenuLink>
-                                    </Link>
-                                </NavigationMenuContent>
+                                    </Link> */}
+                                    </NavigationMenuContent>
+                                </div>
                             </NavigationMenuItem>
 
                         ))}

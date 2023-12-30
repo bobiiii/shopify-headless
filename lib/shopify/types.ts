@@ -44,6 +44,7 @@ export type Menu = {
   title: string;
   path: string;
   tags?: string[];
+  items?: string[];
 };
 
 export type Money = {
