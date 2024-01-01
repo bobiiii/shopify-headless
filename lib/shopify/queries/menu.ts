@@ -3,16 +3,12 @@ export const getMenuQuery = /* GraphQL */ `
     menu(handle: $handle) {
       items {
         id
-        resourceId
         title
         url
-        tags
         type
-        items{
-          id
-          title
-        }
+        tags
         
+        resourceId 
       }
     }
   }

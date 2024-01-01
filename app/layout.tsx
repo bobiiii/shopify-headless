@@ -4,7 +4,7 @@ import { ensureStartsWith } from '@/lib/utils';
 import Navbar from 'components/layout/navbar';
 import { ThemeProvider } from "components/theme-provider";
 import { GeistSans } from 'geist/font';
-import { getMenu } from 'lib/shopify';
+import { getCollections, getMenu } from 'lib/shopify';
 import { ReactNode, Suspense } from 'react';
 import './globals.css';
 
@@ -38,6 +38,31 @@ export const metadata = {
 export default async function RootLayout({ children }: { children: ReactNode }) {
 
   const menu = await getMenu('next-js-frontend-header-menu');
+  const col = await getCollections();
+  const updatedMenu = menu.map((item, i) => {
+    const { path, tags } = item;
+    const handleName = path.replace("/search/", "").replace(`/${[...tags]}`, "");
+
+    // Check if handleName is in col
+    const matchingColItems = col.filter((colItem) => colItem.handle === handleName);
+    const matchingColImages = matchingColItems.map((colItem) => colItem.image).filter(Boolean);
+
+    // If there are matching images, insert them into the item
+    if (matchingColImages.length > 0) {
+      return { ...item, images: matchingColImages };
+    }
+
+    return item;
+  });
+
+  console.log("Updated Mnu:", updatedMenu);
+
+
+
+
+
+
+
 
   return (
     <html lang="en" className={GeistSans.variable} suppressHydrationWarning>
@@ -52,7 +77,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
 
             <Maxwidthwrapper>
               <Navbar />
-              <NavMenu menu={menu} />
+              <NavMenu menu={updatedMenu} />
             </Maxwidthwrapper>
 
 

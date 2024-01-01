@@ -17,7 +17,7 @@ import Link from "next/link";
 
 const NavMenu = async ({ menu }: { menu: Menu[] }) => {
 
-    console.log(menu)
+
 
     return (
         <div className="hidden  md:flex justify-center items-center md:pb-2 border border-green-500">
