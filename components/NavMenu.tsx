@@ -5,10 +5,10 @@ import {
     NavigationMenuContent,
     NavigationMenuItem,
     NavigationMenuList,
-    NavigationMenuTrigger,
-    navigationMenuTriggerStyle
+    NavigationMenuTrigger
 } from "@/components/ui/navigation-menu";
 import { Menu } from 'lib/shopify/types';
+import Image from "next/image";
 import Link from "next/link";
 
 
@@ -34,27 +34,35 @@ const NavMenu = async ({ menu }: { menu: Menu[] }) => {
                                         {item.title}
                                     </Link>
                                 </NavigationMenuTrigger>
-                                <div className="flex justify-center items-center">
-                                    <NavigationMenuContent className="border flex justify-center items-center border-blue-500 " >
 
-                                        <div className={navigationMenuTriggerStyle()}>
-                                            {item.items?.map((collection: any, i) => {
-                                                return (
-                                                    <div key={i} className="-400 flex gap-10 flex-col  ">
+                                <NavigationMenuContent className="border flex justify-between border-blue-500  h-[50vh]" >
 
-                                                        <div>{collection.title} </div>
+                                    <div className={`  w-full grid auto-cols-auto  border border-green-600	 rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 `}>
+                                        {item.items?.map((collection: any, i) => {
+                                            return (
+                                                <div key={i} className=" border border-blue-600  ">
 
-                                                    </div>
-                                                )
-                                            })}
+                                                    <div>{collection.title} </div>
+                                                </div>
+                                            )
+                                        })}
+                                        
 
-                                        </div>
+                                    </div>
 
-                                        {/* <Link href="/" legacyBehavior passHref>
+                                    {item.images &&
+                                        <Image
+                                            src={item.images[0]?.url}
+                                            width={100}
+                                            height={100}
+                                            alt="abc"
+                                        />}
+
+                                    {/* <Link href="/" legacyBehavior passHref>
                                         <NavigationMenuLink className={navigationMenuTriggerStyle()}>WOMEN 11111111 2 22 2 2 22 2 22 2 2 2</NavigationMenuLink>
                                     </Link> */}
-                                    </NavigationMenuContent>
-                                </div>
+                                </NavigationMenuContent>
+
                             </NavigationMenuItem>
 
                         ))}

@@ -7,7 +7,6 @@ import { GeistSans } from 'geist/font';
 import { getCollections, getMenu } from 'lib/shopify';
 import { ReactNode, Suspense } from 'react';
 import './globals.css';
-import Banner from '@/components/banner';
 
 
 const { TWITTER_CREATOR, TWITTER_SITE, SITE_NAME } = process.env;
@@ -57,7 +56,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
     return item;
   });
 
-  console.log("Updated Mnu:", updatedMenu);
+
 
 
 

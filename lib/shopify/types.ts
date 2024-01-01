@@ -45,6 +45,7 @@ export type Menu = {
   path: string;
   tags?: string[];
   resourceId?: string,
+  items?: string[]
   
 };
 

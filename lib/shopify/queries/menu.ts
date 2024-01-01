@@ -10,6 +10,10 @@ export const getMenuQuery = /* GraphQL */ `
         tags
         
         resourceId 
+        items{
+          id
+          title
+        }
       }
     }
   }

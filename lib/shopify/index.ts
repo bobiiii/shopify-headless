@@ -352,13 +352,14 @@ export async function getMenu(handle: string): Promise<Menu[]> {
   
   
   return (
-    res.body?.data?.menu?.items.map((item: { title: string; url: string, tags?: string[], resourceId?: string }) => {
+    res.body?.data?.menu?.items.map((item: { title: string; url: string, tags?: string[],items?: string[], resourceId?: string }) => {
       
       return {
         title: item.title,
         path: item.url.replace(domain, '').replace('/collections', '/search').replace('/pages', ''),
         tags: item.tags ,
-        resourceId: item.resourceId
+        resourceId: item.resourceId,
+        items: item.items
       };
     }) || []
   );
