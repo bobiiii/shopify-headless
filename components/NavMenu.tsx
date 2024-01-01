@@ -14,7 +14,8 @@ import Link from "next/link";
 
 
 
-const NavMenu = async ({ menu }: { menu: Menu[] }) => {
+const NavMenu = async ({ menu }: { menu: any }) => {
+
 
 
 
@@ -46,17 +47,18 @@ const NavMenu = async ({ menu }: { menu: Menu[] }) => {
                                                 </div>
                                             )
                                         })}
-                                        
+
 
                                     </div>
 
-                                    {item.images &&
+                                    {item.images && item.images[0]?.url && (
                                         <Image
-                                            src={item.images[0]?.url}
+                                            src={item.images[0].url.startsWith('/') ? item.images[0].url : `/${item.images[0].url}`}
                                             width={100}
                                             height={100}
                                             alt="abc"
-                                        />}
+                                        />
+                                    )}
 
                                     {/* <Link href="/" legacyBehavior passHref>
                                         <NavigationMenuLink className={navigationMenuTriggerStyle()}>WOMEN 11111111 2 22 2 2 22 2 22 2 2 2</NavigationMenuLink>

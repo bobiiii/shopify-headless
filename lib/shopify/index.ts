@@ -139,7 +139,11 @@ const reshapeCollection = (collection: ShopifyCollection): Collection | undefine
 
   return {
     ...collection,
-    path: `/search/${collection.handle}`
+    path: `/search/${collection.handle}`,
+    image:{
+      id: "id",
+      url: "url",
+    }
   };
 };
 
@@ -327,7 +331,12 @@ export async function getCollections(): Promise<Collection[]> {
         description: 'All products'
       },
       path: '/search',
-      updatedAt: new Date().toISOString()
+      updatedAt: new Date().toISOString(),
+      image: {
+        id: "id",
+        url: "url",
+      }
+
     },
     // Filter out the `hidden` collections.
     // Collections that start with `hidden-*` need to be hidden on the search page.

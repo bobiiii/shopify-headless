@@ -31,6 +31,7 @@ export type CartItem = {
 
 export type Collection = ShopifyCollection & {
   path: string;
+  image: object
 };
 
 export type Image = {
@@ -43,9 +44,11 @@ export type Image = {
 export type Menu = {
   title: string;
   path: string;
-  tags?: string[];
+  tags?: any
   resourceId?: string,
-  items?: string[]
+  items?: string[],
+  images?: { id: string; url: string }[]
+  
   
 };
 
