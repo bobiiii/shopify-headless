@@ -6,9 +6,15 @@ const collectionFragment = /* GraphQL */ `
     handle
     title
     description
+    onlineStoreUrl
+    image{
+      id
+      url
+    }
     seo {
       ...seo
     }
+    
     updatedAt
   }
   ${seoFragment}
@@ -29,6 +35,7 @@ export const getCollectionsQuery = /* GraphQL */ `
       edges {
         node {
           ...collection
+          
         }
       }
     }
