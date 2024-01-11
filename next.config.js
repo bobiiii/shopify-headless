@@ -5,6 +5,7 @@ module.exports = {
     ignoreDuringBuilds: true
   },
   images: {
+    domains: ['mtjonline.com', 'cdn.shopify.com'],
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [
       {
