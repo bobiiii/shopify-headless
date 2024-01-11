@@ -140,10 +140,8 @@ const reshapeCollection = (collection: ShopifyCollection): Collection | undefine
   return {
     ...collection,
     path: `/search/${collection.handle}`,
-    image:{
-      id: "id",
-      url: "url",
-    }
+    
+    
   };
 };
 

@@ -55,16 +55,6 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
 
     return item;
   });
-
-
-
-
-
-
-
-
-
-
   return (
     <html lang="en" className={GeistSans.variable} suppressHydrationWarning>
       <body className="">
@@ -75,7 +65,6 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           disableTransitionOnChange
         >
           <Suspense>
-
             <Maxwidthwrapper>
               <Navbar />
               <NavMenu menu={updatedMenu} />

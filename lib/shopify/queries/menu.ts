@@ -13,6 +13,10 @@ export const getMenuQuery = /* GraphQL */ `
         items{
           id
           title
+          items{
+            id
+          title
+          }
         }
       }
     }
