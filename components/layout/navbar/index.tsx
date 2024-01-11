@@ -11,7 +11,6 @@ import Search from './search';
 const { SITE_NAME } = process.env;
 
 export default async function Navbar() {
-
   const menu = await getMenu('next-js-frontend-header-menu');
 
   return (

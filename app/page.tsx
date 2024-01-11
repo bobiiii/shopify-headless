@@ -1,4 +1,4 @@
-import { CarouselDemo } from '@/components/carousel';
+import { Carousel } from '@/components/carousel';
 import { ThreeItemGrid } from '@/components/grid/three-items';
 import Maxwidthwrapper from '@/components/max-Width-Wrapper';
 import Footer from 'components/layout/footer';
@@ -13,13 +13,13 @@ export const metadata = {
   }
 };
 
+
 export default async function HomePage() {
   return (
     <>
+      <Carousel />
       <Maxwidthwrapper>
         <ThreeItemGrid />
-
-        <CarouselDemo />
         <Suspense>
           <Suspense>
             <Footer />
