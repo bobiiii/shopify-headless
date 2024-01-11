@@ -353,7 +353,7 @@ export async function getMenu(handle: string): Promise<Menu[]> {
       handle
     }
   });
-console.log(res.body?.data?.menu?.items)
+
   return (
     res.body?.data?.menu?.items.map((item: { title: string; url: string, tags?: string[],items?: string[], resourceId?: string }) => {
       

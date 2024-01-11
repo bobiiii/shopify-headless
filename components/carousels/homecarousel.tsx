@@ -29,7 +29,7 @@ function Homecarousel() {
 
   // const prevButton = () => {
   //   console.log(current);
-    
+
   //   if (current === 0) {
   //     setCurrent(images.length - 1)
   //     console.log(current);
@@ -77,30 +77,33 @@ function Homecarousel() {
         </div>
       </div> */}
       <Carousel className="w-full  ">
-      <CarouselContent className='pl-0 pt-0'>
-        {
-          images.map((item:object,index:number) => {
-            return (
-              <CarouselItem key={index}>
-                <div className="p-1 w-full" >
-                  <Card className='border w-full  border-blue-800 '>
-                    <Image
-                      className='w-full object-cover '
-                      src={item?.url}
-                      width={100}
-                      height={100}
-                      alt='carousel'
-                    />
-                    {/* <img src={item?.url} alt=""  className="h-[100vw]  w-full md:h-full"/> */}
-                  </Card>
-                </div>
-              </CarouselItem>
-            )
-          })
-        }
+        <CarouselContent className='pl-0 pt-0 md:h-[80vh] lg:h-[50vh]'>
+          {
+            images.map((item: object, index: number) => {
+              return (
+                <CarouselItem key={index}>
+                  <div className="p-1 w-full" >
+                    <Card className='border w-full   border-blue-800 '>
+                      <Image
+                        className="object-scale-down"
+                        src={item?.url}
+                        // width={100}
 
-      </CarouselContent>
-    </Carousel>
+                        fill={true}
+                        alt='carousel'
+
+
+                      />
+                      {/* <img src={item?.url} alt=""  className="h-[100vw]  w-full md:h-full"/> */}
+                    </Card>
+                  </div>
+                </CarouselItem>
+              )
+            })
+          }
+
+        </CarouselContent>
+      </Carousel>
 
     </>
   )
