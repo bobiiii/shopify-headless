@@ -1,4 +1,5 @@
 import NavMenu from '@/components/NavMenu';
+import Footer2 from '@/components/layout/footer2';
 import Maxwidthwrapper from '@/components/max-Width-Wrapper';
 import { ensureStartsWith } from '@/lib/utils';
 import Navbar from 'components/layout/navbar';
@@ -65,13 +66,18 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           enableSystem
           disableTransitionOnChange
         >
-          <Suspense>
-            <Maxwidthwrapper>
+          <Maxwidthwrapper>
+            <Suspense>
               <Navbar />
               <NavMenu menu={updatedMenu} />
-            </Maxwidthwrapper>
+            </Suspense>
+
             <main>{children}</main>
-          </Suspense>
+            <Suspense>
+              <Footer2 />
+            </Suspense>
+          </Maxwidthwrapper>
+
         </ThemeProvider>
       </body>
     </html>
