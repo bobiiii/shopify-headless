@@ -1,11 +1,17 @@
 "use client"
-import Image from "next/image";
+
+
 import { Card } from "../ui/card";
 import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
-function Homecarousel() {
+import Link from "next/link";
+
+function Homecarousel({data}:{data:any}) {
+  console.log(data[0].featuredImage?.url);
+  
+
   const images = [
     {
-      url: 'https://mtjonline.com/cdn/shop/files/Web-Banner_3.jpg?v=1697608024'
+      url: 'https://mtjonline.com/cdn/shop/files/Mob-Fragrance.jpg?v=1704114024'
     },
     {
       url: 'https://mtjonline.com/cdn/shop/files/Web-Fragrance.jpg?v=1704114010'
@@ -76,23 +82,23 @@ function Homecarousel() {
           </div>
         </div>
       </div> */}
-      <Carousel className="w-full  ">
-        <CarouselContent className='pl-0 pt-0 md:h-[80vh] lg:h-[50vh]'>
+      
+      
+      <Carousel className="w-full cursor-pointer  ">
+        <CarouselContent className='pl-0 w-full pt-0  md:h-[70vh] h-screen '>
           {
-            images.map((item: object, index: number) => {
+            data.map((item: any, index: number) => {
               return (
                 <CarouselItem key={index}>
                   <div className="p-1 w-full" >
-                    <Card className='border w-full   border-blue-800 '>
+                    <Card className='border w-full'>
                       <Image
-                        className="object-scale-down"
-                        src={item?.url}
-                        // width={100}
-
+                        className="  "
+                        src={item?.featuredImage?.url}
                         fill={true}
+                        // width={7000}
+                        // height={500}
                         alt='carousel'
-
-
                       />
                       {/* <img src={item?.url} alt=""  className="h-[100vw]  w-full md:h-full"/> */}
                     </Card>
@@ -104,7 +110,6 @@ function Homecarousel() {
 
         </CarouselContent>
       </Carousel>
-
     </>
   )
 }

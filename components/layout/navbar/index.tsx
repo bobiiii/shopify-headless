@@ -16,13 +16,13 @@ export default async function Navbar() {
   return (
 
     <nav className=" relative flex items-center justify-between p-4 lg:px-6 ">
-      <div className="block flex-none md:hidden">
+      <div className="block flex-none nav:hidden">
         <MobileMenu menu={menu} />
       </div>
 
       <div className="flex justify-between   w-full items-center ">
         <div className="md:flex w-full md:w-1/3 hidden ">
-          <span className='hidden md:block text-base font-thin '>  + 92(21)-36-111-685(MTJ)</span>
+          <span className='hidden nav:block text-base font-thin '>  + 92(21)-36-111-685(MTJ)</span>
 
 
         </div>
@@ -38,7 +38,7 @@ export default async function Navbar() {
           </Link>
         </div>
         <div className="flex gap-2  justify-end md:w-1/3 ">
-          <div className='hidden md:block'>
+          <div className='hidden nav:block'>
             <Search />
           </div>
           <ModeToggle />

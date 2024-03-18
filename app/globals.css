@@ -87,3 +87,12 @@
 .animate-scrolling-text {
   animation: scroll 20s linear infinite;
 }
+
+
+.scrollbarHidden::-webkit-scrollbar{
+  width: 10px;
+}
+
+.scrollbarHidden::-webkit-scrollbar-thumb{
+  background-color: transparent;
+}
